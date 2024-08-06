@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProdSpecRelaRepository extends JpaRepository<ProdSpecRela,ProdSpecRelaPK>{
+public interface ProdSpecRela_Repository extends JpaRepository<ProdSpecRela,ProdSpecRelaPK>{
     
 }

@@ -3,8 +3,8 @@ package org.ocs.billing.service;
 import java.util.List;
 
 import org.ocs.billing.entity.prod.ProdSpecAttr;
-import org.ocs.billing.repository.prod.ProdSpecAttrRepository;
-import org.ocs.billing.repository.prod.ProdSpecTypeRepository;
+import org.ocs.billing.repository.prod.ProdSpecAttr_Repository;
+import org.ocs.billing.repository.prod.ProdSpecType_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +14,10 @@ import jakarta.annotation.PostConstruct;
 public class ProdSpecTypeService {
     
     @Autowired
-    private ProdSpecTypeRepository prodSpecTypeRepository;
+    private ProdSpecType_Repository prodSpecTypeRepository;
 
     @Autowired
-    private ProdSpecAttrRepository prodSpecAttrRepository;
+    private ProdSpecAttr_Repository prodSpecAttrRepository;
     
     @PostConstruct
     void setup(){
