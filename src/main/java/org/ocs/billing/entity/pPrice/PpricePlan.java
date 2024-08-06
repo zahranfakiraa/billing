@@ -16,6 +16,7 @@ public class PpricePlan implements Serializable{
 
 	@Id
 	@Column(name="price_plan_id", unique=true, nullable=false, precision=6)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long pricePlanId;
 
 	@Column(name="apply_level", nullable=false, length=1)
