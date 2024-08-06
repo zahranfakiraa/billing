@@ -3,8 +3,8 @@ package org.ocs.billing.service;
 import java.util.List;
 
 import org.ocs.billing.entity.prod.ProdSpecAttr;
-import org.ocs.billing.repository.ProdSpecAttrRepository;
-import org.ocs.billing.repository.ProdSpecTypeRepository;
+import org.ocs.billing.repository.prod.ProdSpecAttrRepository;
+import org.ocs.billing.repository.prod.ProdSpecTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

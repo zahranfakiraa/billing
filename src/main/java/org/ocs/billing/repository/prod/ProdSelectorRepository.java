@@ -1,4 +1,4 @@
-package org.ocs.billing.repository;
+package org.ocs.billing.repository.prod;
 
 import org.ocs.billing.entity.prod.ProdSelector;
 import org.ocs.billing.entity.prod.ProdSelectorPK;
