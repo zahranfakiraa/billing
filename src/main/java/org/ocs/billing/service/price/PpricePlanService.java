@@ -3,15 +3,15 @@ package org.ocs.billing.service.price;
 import org.ocs.billing.dto.pPrice.PpricePlanDto;
 import org.ocs.billing.entity.pPrice.PpricePlan;
 import org.ocs.billing.entity.pPrice.PpricePlanType;
-import org.ocs.billing.repository.pPrice.PpricePlan_Repository;
+import org.ocs.billing.repository.pPrice.PpricePlanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PpricePlan_Service {
+public class PpricePlanService {
     
     @Autowired
-    private PpricePlan_Repository ppricePlan_Repository;
+    private PpricePlanRepository ppricePlan_Repository;
 
     public static PpricePlan getPpricePlanFromDto(PpricePlanDto ppricePlanDto, PpricePlanType ppricePlanType) {
         PpricePlan ppricePlan = new PpricePlan();

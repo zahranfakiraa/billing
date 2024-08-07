@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PricePlanSector_Repository extends JpaRepository<PricePlanSector, PricePlanSelectorPK> {
+public interface PricePlanSectorRepository extends JpaRepository<PricePlanSector, PricePlanSelectorPK> {
 
 }

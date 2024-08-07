@@ -5,8 +5,8 @@ import java.util.*;
 import org.ocs.billing.common.ApiResponse;
 import org.ocs.billing.dto.pPrice.PpricePlanDto;
 import org.ocs.billing.entity.pPrice.PpricePlanType;
-import org.ocs.billing.service.price.PpricePlanType_Service;
-import org.ocs.billing.service.price.PpricePlan_Service;
+import org.ocs.billing.service.price.PpricePlanTypeService;
+import org.ocs.billing.service.price.PpricePlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/ppricePlan")
-public class PricePlan_Controller {
+public class PricePlanController {
 
     @Autowired
-    private PpricePlan_Service ppricePlan_Service;
+    private PpricePlanService ppricePlan_Service;
 
     @Autowired
-    private PpricePlanType_Service ppricePlanType_Service;
+    private PpricePlanTypeService ppricePlanType_Service;
 
     @PostMapping("/")
     public ResponseEntity<ApiResponse> addPpricePlan(@RequestBody PpricePlanDto ppricePlanDto) {

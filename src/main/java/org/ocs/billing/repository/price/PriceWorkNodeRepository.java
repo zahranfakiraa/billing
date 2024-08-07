@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PriceWorkNode_Repository extends JpaRepository<PriceWorkNode, PriceWorkNodePK> {
+public interface PriceWorkNodeRepository extends JpaRepository<PriceWorkNode, PriceWorkNodePK> {
 
 }

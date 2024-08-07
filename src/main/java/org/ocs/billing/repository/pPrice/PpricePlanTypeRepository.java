@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PpricePlanType_Repository extends JpaRepository<PpricePlanType, String> {
+public interface PpricePlanTypeRepository extends JpaRepository<PpricePlanType, String> {
 
     Optional<PpricePlanType> findByPricePlanType(String pricePlanType);
 

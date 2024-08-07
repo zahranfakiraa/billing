@@ -1,10 +1,10 @@
 package org.ocs.billing.repository.price;
 
-import org.ocs.billing.entity.price.Price;
+import org.ocs.billing.entity.price.PricePlanVer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface Price_Repository extends JpaRepository<Price,Long>{
-    
+public interface PricePlanVerRepository extends JpaRepository<PricePlanVer, Long> {
+
 }

@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PricePlanMember_Repository extends JpaRepository<PricePlanMember,PricePlanMemberPK>{
+public interface PricePlanMemberRepository extends JpaRepository<PricePlanMember,PricePlanMemberPK>{
     
 }
