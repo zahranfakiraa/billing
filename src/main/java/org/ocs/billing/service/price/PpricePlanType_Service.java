@@ -35,6 +35,7 @@ public class PpricePlanType_Service {
         return ppricePlanTypeDto;
     }
 
+    // buat sub price plan
     public void addPpricePlanType(PpricePlanTypeDto ppricePlanTypeDto) {
         PpricePlanType ppricePlanType = getPpricePlanTypeFromDto(ppricePlanTypeDto);
         ppricePlanType_Repository.save(ppricePlanType);
