@@ -2,6 +2,7 @@ package org.ocs.billing.service.price;
 
 import org.ocs.billing.dto.PpricePlanDto;
 import org.ocs.billing.entity.pPrice.PpricePlan;
+import org.ocs.billing.entity.pPrice.PpricePlanType;
 import org.ocs.billing.repository.pPrice.PpricePlan_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,19 +13,21 @@ public class PpricePlan_Service {
     @Autowired
     private PpricePlan_Repository ppricePlan_Repository;
 
-    public static PpricePlan getPpricePlanFromDto (PpricePlanDto ppricePlanDto) {
+    public static PpricePlan getPpricePlanFromDto(PpricePlanDto ppricePlanDto, PpricePlanType ppricePlanType) {
         PpricePlan ppricePlan = new PpricePlan();
+        ppricePlan.setPricePlanType(ppricePlanType);
+        ppricePlan.setComments(ppricePlanDto.getComments());
         ppricePlan.setPricePlanName(ppricePlanDto.getPricePlanName());
         ppricePlan.setPricePlanCode(ppricePlanDto.getPricePlanCode());
-        ppricePlan.setComments(ppricePlanDto.getComments());
-        ppricePlan.setSpId(ppricePlanDto.getSpId());
         ppricePlan.setState(ppricePlanDto.getState());
-        ppricePlan.setStateDate(ppricePlanDto.getStateDate());
+        ppricePlan.setApplyLevel(ppricePlanDto.getApplyLevel());
+        ppricePlan.setSpId(ppricePlanDto.getSpId());
+        ppricePlan.setStateDate(new java.sql.Date(ppricePlanDto.getStateDate().getTime()));
         return ppricePlan;
     }
 
-    public void addPpricePlan(PpricePlanDto ppricePlanDto) {
-        PpricePlan ppricePlan = getPpricePlanFromDto(ppricePlanDto);
+    public void addPpricePlan(PpricePlanDto ppricePlanDto, PpricePlanType ppricePlanType) {
+        PpricePlan ppricePlan = getPpricePlanFromDto(ppricePlanDto, ppricePlanType);
         ppricePlan_Repository.save(ppricePlan);
     }
 

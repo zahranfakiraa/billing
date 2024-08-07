@@ -13,17 +13,11 @@ import org.springframework.stereotype.Service;
 public class PpricePlanType_Service {
 
     @Autowired
-    public PpricePlanType_Repository ppricePlanType_Repository;
+    private PpricePlanType_Repository ppricePlanType_Repository;
 
     public static PpricePlanTypeDto getDtoFromPpricePlanTypeDto(PpricePlanType ppricePlanType) {
         PpricePlanTypeDto ppricePlanTypeDto = new PpricePlanTypeDto(ppricePlanType);
         return ppricePlanTypeDto;
-    }
-
-    public static PpricePlanType getPpricePlanTypeFromDto(PpricePlanTypeDto ppricePlanTypeDto) {
-        PpricePlanType ppricePlanType = new PpricePlanType();
-        ppricePlanType.setPricePlanType(ppricePlanTypeDto.getPricePlanType());
-        return ppricePlanType;
     }
 
     public List<PpricePlanTypeDto> getAllPpricePlanType() {
@@ -36,8 +30,8 @@ public class PpricePlanType_Service {
     }
 
     // buat sub price plan
-    public void addPpricePlanType(PpricePlanTypeDto ppricePlanTypeDto) {
-        PpricePlanType ppricePlanType = getPpricePlanTypeFromDto(ppricePlanTypeDto);
-        ppricePlanType_Repository.save(ppricePlanType);
-    }
+    // public void addPpricePlanType(PpricePlanTypeDto ppricePlanTypeDto) {
+    //     PpricePlanType ppricePlanType = getPpricePlanTypeFromDto(ppricePlanTypeDto);
+    //     ppricePlanType_Repository.save(ppricePlanType);
+    // }
 }

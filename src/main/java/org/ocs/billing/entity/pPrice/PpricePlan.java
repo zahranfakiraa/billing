@@ -25,6 +25,10 @@ public class PpricePlan implements Serializable{
 	@Column(length=4000)
 	private String comments;
 
+	@ManyToOne
+    @JoinColumn(name="price_plan_type")
+    private PpricePlanType pricePlanType;
+
 	@Column(name="policy_flag", length=1)
 	private String policyFlag;
 
@@ -42,7 +46,7 @@ public class PpricePlan implements Serializable{
 
 	@Column(name="sp_id", precision=6)
 	private BigDecimal spId;
-	
+
 	@Column(nullable=false, length=1)
 	private String state;
 
@@ -52,6 +56,8 @@ public class PpricePlan implements Serializable{
 
 	@Column(name="warn_level", length=1)
 	private String warnLevel;
+
+
 
 	public PpricePlan() {
 	}
