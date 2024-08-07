@@ -19,6 +19,10 @@ public class PpricePlanType_Service {
         return ppricePlanTypeDto;
     }
 
+    public Optional<PpricePlanType> getPpricePlanTypeName(String pricePlanType) {
+        return ppricePlanType_Repository.findByPricePlanType(pricePlanType);
+    }
+
     // public List<PpricePlanTypeDto> getAllPpricePlanType() {
     //     List<PpricePlanType> ppricePlanType = ppricePlanType_Repository.findAll();
     //     List<PpricePlanTypeDto> ppricePlanTypeDto = new ArrayList<>();
@@ -27,10 +31,6 @@ public class PpricePlanType_Service {
     //     }
     //     return ppricePlanTypeDto;
     // }
-
-    public Optional<PpricePlanType> getPpricePlanTypeName(String pricePlanType) {
-        return ppricePlanType_Repository.findByPricePlanType(pricePlanType);
-    }
 
     // buat sub price plan
     // public void addPpricePlanType(PpricePlanTypeDto ppricePlanTypeDto) {
