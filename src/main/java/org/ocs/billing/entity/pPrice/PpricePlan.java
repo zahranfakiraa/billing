@@ -42,7 +42,7 @@ public class PpricePlan implements Serializable{
 
 	@Column(name="sp_id", precision=6)
 	private BigDecimal spId;
-
+	
 	@Column(nullable=false, length=1)
 	private String state;
 

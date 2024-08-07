@@ -1,38 +1,42 @@
 package org.ocs.billing.service.price;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.ocs.billing.dto.response.PpricePlanType_Response;
+import org.ocs.billing.dto.PpricePlanTypeDto;
 import org.ocs.billing.entity.pPrice.PpricePlanType;
 import org.ocs.billing.repository.pPrice.PpricePlanType_Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PpricePlanType_Service {
 
+    @Autowired
     public PpricePlanType_Repository ppricePlanType_Repository;
 
-    private PpricePlanType_Response toPpricePlanTypeResponse(List<PpricePlanType> ppricePlanType) {
-        PpricePlanType_Response response = null;
-        for (PpricePlanType planType : ppricePlanType) {
-            response = PpricePlanType_Response.builder()
-                    .pricePlanType(planType.getPricePlanType())
-                    .comments(planType.getComments())
-                    .pricePlanTypeName(planType.getPricePlanTypeName())
-                    .build();
-        }
-        return response;
+    public static PpricePlanTypeDto getDtoFromPpricePlanTypeDto(PpricePlanType ppricePlanType) {
+        PpricePlanTypeDto ppricePlanTypeDto = new PpricePlanTypeDto(ppricePlanType);
+        return ppricePlanTypeDto;
     }
 
-    public PpricePlanType_Response getAllPpricePlanType(String pricePlanType) {
+    public static PpricePlanType getPpricePlanTypeFromDto(PpricePlanTypeDto ppricePlanTypeDto) {
+        PpricePlanType ppricePlanType = new PpricePlanType();
+        ppricePlanType.setPricePlanType(ppricePlanTypeDto.getPricePlanType());
+        return ppricePlanType;
+    }
+
+    public List<PpricePlanTypeDto> getAllPpricePlanType() {
         List<PpricePlanType> ppricePlanType = ppricePlanType_Repository.findAll();
-        return toPpricePlanTypeResponse(ppricePlanType);
+        List<PpricePlanTypeDto> ppricePlanTypeDto = new ArrayList<>();
+        for (PpricePlanType ppricePlan : ppricePlanType) {
+            ppricePlanTypeDto.add(getDtoFromPpricePlanTypeDto(ppricePlan));
+        }
+        return ppricePlanTypeDto;
     }
 
-    // root table SubPricePlan
-
-    // list all pPrice Type
-
-    // get pPrice Type
-
+    public void addPpricePlanType(PpricePlanTypeDto ppricePlanTypeDto) {
+        PpricePlanType ppricePlanType = getPpricePlanTypeFromDto(ppricePlanTypeDto);
+        ppricePlanType_Repository.save(ppricePlanType);
+    }
 }
