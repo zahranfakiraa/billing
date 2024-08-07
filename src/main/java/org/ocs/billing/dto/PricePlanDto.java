@@ -1,8 +1,6 @@
 package org.ocs.billing.dto;
 
-import java.math.BigDecimal;
-
-import lombok.Data;
+import lombok.*;
 
 @Data
 public class PricePlanDto {
@@ -14,6 +12,5 @@ public class PricePlanDto {
 
     public PricePlanDto() {
     }
-
     
 }
