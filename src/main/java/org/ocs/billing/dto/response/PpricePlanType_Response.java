@@ -1,4 +1,4 @@
-package org.ocs.billing.dto;
+package org.ocs.billing.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,12 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PricePlanDto {
-    private String pricePlanName;
-
-    private String pricePlanCode;
-
+public class PpricePlanType_Response {
     private String pricePlanType;
 
     private String comments;
+
+    private String pricePlanTypeName;
+
 }
