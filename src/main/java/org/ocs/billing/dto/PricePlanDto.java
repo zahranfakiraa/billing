@@ -1,10 +1,12 @@
 package org.ocs.billing.dto;
 
-import java.math.BigDecimal;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PricePlanDto {
     private String pricePlanName;
 
@@ -12,8 +14,9 @@ public class PricePlanDto {
 
     private String pricePlanType;
 
-    public PricePlanDto() {
-    }
+    private String comments;
 
     
+
+
 }
