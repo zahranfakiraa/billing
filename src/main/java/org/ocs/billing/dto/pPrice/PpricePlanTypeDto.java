@@ -1,4 +1,4 @@
-package org.ocs.billing.dto;
+package org.ocs.billing.dto.pPrice;
 
 import org.ocs.billing.entity.pPrice.PpricePlanType;
 

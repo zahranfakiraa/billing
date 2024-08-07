@@ -1,6 +1,6 @@
 package org.ocs.billing.service.price;
 
-import org.ocs.billing.dto.PpricePlanDto;
+import org.ocs.billing.dto.pPrice.PpricePlanDto;
 import org.ocs.billing.entity.pPrice.PpricePlan;
 import org.ocs.billing.entity.pPrice.PpricePlanType;
 import org.ocs.billing.repository.pPrice.PpricePlan_Repository;
