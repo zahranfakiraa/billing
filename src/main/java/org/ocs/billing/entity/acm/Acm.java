@@ -18,14 +18,14 @@ public class Acm implements Serializable{
 
     @Id
     @OneToOne
-    @JoinColumn(name="price_ver_id", nullable=false, insertable=false, updatable=false,referencedColumnName = "price_ver_id")
+    @JoinColumn(name="price_ver_id",referencedColumnName = "price_ver_id")
     private PriceVer priceVerId;
 
     @Column(name="acm_name", length=60)
     private String acmName;
 
     @OneToOne
-    @JoinColumn(name="re_attr", nullable=false, insertable=false, updatable=false,referencedColumnName = "re_attr")
+    @JoinColumn(name="re_attr", nullable=false,referencedColumnName = "re_attr")
     private ReAttr reAttr;
 
     @Column(name="sp_id", precision=6)
@@ -34,13 +34,13 @@ public class Acm implements Serializable{
     @Column(length=1000)
 	private String comments;
 
-    @Column(name="rum",precision = 5)
+    @Column(name="rum",precision = 12)
     private BigDecimal rum;
 
-    @Column(name="ref_resource_id", nullable=false, precision=6)
+    @Column(name="ref_resource_id", nullable=false, precision=9)
 	private BigDecimal refResourceId;
 
-    @Column(name="ref_value_id", nullable=false, precision=6)
+    @Column(name="ref_value_id", precision=9)
 	private BigDecimal refValueId;
 
     @Column(name="template_flag", length=100)
