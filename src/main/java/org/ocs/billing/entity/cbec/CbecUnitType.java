@@ -26,4 +26,7 @@ public class CbecUnitType implements Serializable{
     @Column(name="comments",length=60)
     private String comments;
 
+    public CbecUnitType(){
+        
+    }
 }
