@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-import org.ocs.billing.entity.ball.BalEventRule;
+import org.ocs.billing.entity.bal.BalEventRule;
 import org.ocs.billing.entity.mapping.Mapping;
 
 import jakarta.persistence.*;
