@@ -38,15 +38,4 @@ public class PpricePlanDto {
     @JsonIgnore
     @CreatedDate
     private Date stateDate;
-
-    public PpricePlanDto(PpricePlan ppricePlan) {
-        this.pricePlanName = ppricePlan.getPricePlanName();
-        this.pricePlanCode = ppricePlan.getPricePlanCode();
-        this.pricePlanType = ppricePlan.getPricePlanType().getPricePlanType();
-        this.comments = ppricePlan.getComments();
-        this.state = ppricePlan.getState();
-        this.applyLevel = ppricePlan.getApplyLevel();
-        this.spId = ppricePlan.getSpId();
-        this.stateDate = new java.sql.Date(ppricePlan.getStateDate().getTime());
-    }
 }

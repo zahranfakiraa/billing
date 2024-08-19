@@ -13,6 +13,7 @@ import lombok.*;
 public class SubsPricePlan implements Serializable{
     private static final long serialVersionUID = 1L;
 
+	// abaikan dulu
 	@Column(name="depend_prod_spec_id", precision=6)
 	private BigDecimal dependProdSpecId;
 
