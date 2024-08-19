@@ -5,17 +5,9 @@ import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
-public class ApiResponse {
-    private final boolean succes;
-    private final String message;
+public class ApiResponse<T> {
+    private T data;
 
-    public ApiResponse(boolean succes, String message) {
-        this.succes = succes;
-        this.message = message;
-    }
+    private String errors;
 
-    public String getTimestamp() {
-		return LocalDateTime.now().toString();
-	}
-    
 }
