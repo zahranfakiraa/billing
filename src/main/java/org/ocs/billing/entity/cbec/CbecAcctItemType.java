@@ -73,7 +73,7 @@ public class CbecAcctItemType implements Serializable{
 	//bi-directional many-to-one association to CbecAcctRe
 	@ManyToOne
 	@JoinColumn(name="acct_res_id", nullable=false)
-	private CbecAcctRe cbecAcctRe;
+	private CbecAcctRes cbecAcctRe;
 
 	public CbecAcctItemType() {
 	}

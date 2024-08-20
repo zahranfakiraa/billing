@@ -12,7 +12,7 @@ import lombok.*;
 @Entity
 @Table(name="cbec_acct_res")
 @NamedQuery(name="CbecAcctRe.findAll", query="SELECT c FROM CbecAcctRe c")
-public class CbecAcctRe implements Serializable{
+public class CbecAcctRes implements Serializable{
     private static final long serialVersionUID = 1L;
 
 	@Id
@@ -96,13 +96,13 @@ public class CbecAcctRe implements Serializable{
 	//bi-directional many-to-one association to CbecAcctRe
 	@ManyToOne
 	@JoinColumn(name="parent_acct_res_id")
-	private CbecAcctRe cbecAcctRe;
+	private CbecAcctRes cbecAcctRe;
 
 	//bi-directional many-to-one association to CbecAcctRe
 	@OneToMany(mappedBy="cbecAcctRe")
-	private List<CbecAcctRe> cbecAcctRes;
+	private List<CbecAcctRes> cbecAcctRes;
 
-	public CbecAcctRe() {
+	public CbecAcctRes() {
 	}
 
     public CbecAcctItemType addCbecAcctItemType(CbecAcctItemType cbecAcctItemType) {
@@ -119,14 +119,14 @@ public class CbecAcctRe implements Serializable{
 		return cbecAcctItemType;
 	}
 
-    public CbecAcctRe addCbecAcctRe(CbecAcctRe cbecAcctRe) {
+    public CbecAcctRes addCbecAcctRe(CbecAcctRes cbecAcctRe) {
 		getCbecAcctRes().add(cbecAcctRe);
 		cbecAcctRe.setCbecAcctRe(this);
 
 		return cbecAcctRe;
 	}
 
-	public CbecAcctRe removeCbecAcctRe(CbecAcctRe cbecAcctRe) {
+	public CbecAcctRes removeCbecAcctRe(CbecAcctRes cbecAcctRe) {
 		getCbecAcctRes().remove(cbecAcctRe);
 		cbecAcctRe.setCbecAcctRe(null);
 
