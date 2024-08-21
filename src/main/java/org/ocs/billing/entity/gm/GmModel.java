@@ -32,6 +32,6 @@ public class GmModel implements Serializable{
     private String stdCode;
 
     public GmModel(){
-        
+
     }
 }
