@@ -1,16 +1,22 @@
 package org.ocs.billing.service.price;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 import org.ocs.billing.dto.pPrice.CreatePricePlanRequest;
 import org.ocs.billing.dto.pPrice.PricePlanResponse;
 import org.ocs.billing.entity.pPrice.PpricePlan;
+import org.ocs.billing.entity.pPrice.PpricePlanType;
 import org.ocs.billing.entity.sub.SubsPricePlan;
 import org.ocs.billing.repository.pPrice.PpricePlanRepository;
+import org.ocs.billing.repository.pPrice.PpricePlanTypeRepository;
+import org.ocs.billing.repository.price.PricePlanTypeRepository;
 import org.ocs.billing.repository.sub.SubsPricePlanRepository;
 import org.ocs.billing.service.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class PpricePlanService {
@@ -20,6 +26,9 @@ public class PpricePlanService {
 
     @Autowired
     private SubsPricePlanRepository subsPricePlanRepository;
+
+    @Autowired
+    private PpricePlanTypeRepository pricePlanTypeRepository;
 
     @Autowired
     private ValidationService validationService;
@@ -34,9 +43,13 @@ public class PpricePlanService {
         ppricePlan.setState(request.getState());
         ppricePlanRepository.save(ppricePlan);
 
+        PpricePlanType ppricePlanType = pricePlanTypeRepository.findById(request.getPricePlanType())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Price plan type not found"));
+
         SubsPricePlan subsPricePlan = new SubsPricePlan();
-        subsPricePlan.setPricePlanId(ppricePlan.getPricePlanId());
-        subsPricePlan.setPricePlanType(request.getPricePlanType());
+        subsPricePlan.setPricePlanId(ppricePlan);
+        subsPricePlan.setPricePlanType(ppricePlanType);
+        subsPricePlan.setSpId(new BigDecimal(0));
         subsPricePlanRepository.save(subsPricePlan);
 
         return toResponse(ppricePlan);

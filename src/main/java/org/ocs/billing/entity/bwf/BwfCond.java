@@ -3,6 +3,8 @@ package org.ocs.billing.entity.bwf;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import org.ocs.billing.entity.SortOperator;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -61,8 +63,10 @@ public class BwfCond implements Serializable{
 	@Column(name="re_attr", precision=6)
 	private BigDecimal reAttr;
 
-	@Column(name="sort_operator", length=1)
-	private String sortOperator;
+	@ManyToOne
+	@JoinColumn(name = "sort_operator", referencedColumnName = "sort_operator" )
+	// @Column(name="sort_operator", length=1)
+	private SortOperator sortOperator;
 
 	@Column(name="sp_id", precision=6)
 	private BigDecimal spId;
