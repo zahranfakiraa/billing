@@ -1,4 +1,4 @@
-package org.ocs.billing.entity.subs;
+package org.ocs.billing.entity.sub;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -9,14 +9,18 @@ import lombok.*;
 
 @Data
 @Entity
-@Table(name="subs_upp_inst")
-@NamedQuery(name="SubsUppInst.findAll",query="SELECT s FROM SubsUppInst s")
-public class SubsUppInst implements Serializable{
+@Table(name="subs_rela")
+@NamedQuery(name="SubsRela.findAll",query="SELECT s FROM SubsRela s")
+public class SubsRela implements Serializable{
     private static final long serialVersionUID = 1L;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="completed_date", nullable=false)
-	private Date completedDate;
+	@Id
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@Column(name="subs_rela_id", unique=true, nullable=false, precision=12)
+	private long subsRelaId;
+
+	@Column(name="bind_type", nullable=false, length=1)
+	private String bindType;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="created_date", nullable=false)
@@ -25,25 +29,16 @@ public class SubsUppInst implements Serializable{
 	@Column(name="cust_id", precision=15)
 	private BigDecimal custId;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="eff_date", nullable=false)
-	private Date effDate;
+	@Column(name="parent_subs_id", nullable=false, precision=15)
+	private BigDecimal parentSubsId;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="exp_date")
-	private Date expDate;
+	@Column(name="rela_eff_date")
+	private Date relaEffDate;
 
-	@Column(name="need_upload", length=1)
-	private String needUpload;
-
-	@Column(name="offer_id", precision=9)
-	private BigDecimal offerId;
-
-	@Column(name="price_plan_id", nullable=false, precision=6)
-	private BigDecimal pricePlanId;
-
-	@Column(name="prod_id", precision=15)
-	private BigDecimal prodId;
+	@Temporal(TemporalType.DATE)
+	@Column(name="rela_exp_date")
+	private Date relaExpDate;
 
 	@Column(name="routing_id", nullable=false, precision=6)
 	private BigDecimal routingId;
@@ -61,13 +56,10 @@ public class SubsUppInst implements Serializable{
 	@Column(name="subs_id", nullable=false, precision=15)
 	private BigDecimal subsId;
 
-	@Column(name="subs_upp_inst_id", nullable=false, precision=15)
-	private BigDecimal subsUppInstId;
-
 	@Temporal(TemporalType.DATE)
 	@Column(name="update_date", nullable=false)
 	private Date updateDate;
 
-	public SubsUppInst() {
+	public SubsRela() {
 	}
 }

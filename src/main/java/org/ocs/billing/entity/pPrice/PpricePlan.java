@@ -25,10 +25,6 @@ public class PpricePlan implements Serializable{
 	@Column(length=4000)
 	private String comments;
 
-	@ManyToOne
-    @JoinColumn(name="price_plan_type")
-    private PpricePlanType pricePlanType;
-
 	@Column(name="policy_flag", length=1)
 	private String policyFlag;
 

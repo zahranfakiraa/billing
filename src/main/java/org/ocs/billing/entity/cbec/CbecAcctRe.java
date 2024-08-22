@@ -12,7 +12,7 @@ import lombok.*;
 @Entity
 @Table(name="cbec_acct_res")
 @NamedQuery(name="CbecAcctRe.findAll", query="SELECT c FROM CbecAcctRe c")
-public class CbecAcctRes implements Serializable{
+public class CbecAcctRe implements Serializable{
     private static final long serialVersionUID = 1L;
 
 	@Id
@@ -32,8 +32,9 @@ public class CbecAcctRes implements Serializable{
 	@Column(name="created_date")
 	private Date createdDate;
 
-	@Column(name="currency_type_id", precision=6)
-	private BigDecimal currencyTypeId;
+	@ManyToOne
+	@JoinColumn(name="currency_type_id", referencedColumnName = "currency_type_id")
+	private CbecCurrencyType currencyTypeId;
 
 	@Column(name="eff_type", length=1)
 	private String effType;
@@ -96,13 +97,13 @@ public class CbecAcctRes implements Serializable{
 	//bi-directional many-to-one association to CbecAcctRe
 	@ManyToOne
 	@JoinColumn(name="parent_acct_res_id")
-	private CbecAcctRes cbecAcctRe;
+	private CbecAcctRe cbecAcctRe;
 
 	//bi-directional many-to-one association to CbecAcctRe
 	@OneToMany(mappedBy="cbecAcctRe")
-	private List<CbecAcctRes> cbecAcctRes;
+	private List<CbecAcctRe> cbecAcctRes;
 
-	public CbecAcctRes() {
+	public CbecAcctRe() {
 	}
 
     public CbecAcctItemType addCbecAcctItemType(CbecAcctItemType cbecAcctItemType) {
@@ -119,14 +120,14 @@ public class CbecAcctRes implements Serializable{
 		return cbecAcctItemType;
 	}
 
-    public CbecAcctRes addCbecAcctRe(CbecAcctRes cbecAcctRe) {
+    public CbecAcctRe addCbecAcctRe(CbecAcctRe cbecAcctRe) {
 		getCbecAcctRes().add(cbecAcctRe);
 		cbecAcctRe.setCbecAcctRe(this);
 
 		return cbecAcctRe;
 	}
 
-	public CbecAcctRes removeCbecAcctRe(CbecAcctRes cbecAcctRe) {
+	public CbecAcctRe removeCbecAcctRe(CbecAcctRe cbecAcctRe) {
 		getCbecAcctRes().remove(cbecAcctRe);
 		cbecAcctRe.setCbecAcctRe(null);
 

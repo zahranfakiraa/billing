@@ -20,7 +20,7 @@ public class Attr implements Serializable{
 	@Column(name="attr_catg", length=60)
 	private String attrCatg;
 
-	@Column(name="attr_code", length=30)
+	@Column(name="attr_code", length=30, unique = true)
 	private String attrCode;
 
 	@Column(name="attr_name", nullable=false, length=60)
