@@ -1,6 +1,5 @@
 package org.ocs.billing.entity.cond;
 
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
@@ -12,28 +11,28 @@ import lombok.*;
 
 @Data
 @Entity
-@Table(name="cond_base_group")
-@NamedQuery(name="CondBaseGroup.findAll", query="SELECT c FROM CondBaseGroup c")
+@Table(name = "cond_base_group")
+@NamedQuery(name = "CondBaseGroup.findAll", query = "SELECT c FROM CondBaseGroup c")
 public class CondBaseGroup implements Serializable {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="cond_base_group_id", unique=true, nullable=false, precision=12)
+	@Column(name = "cond_base_group_id", unique = true, nullable = false, precision = 12)
 	private long condBaseGroupId;
 
-	@Column(nullable=false, precision=3)
+	@Column(nullable = false, precision = 3)
 	private BigDecimal seq;
 
-	@Column(name="sp_id", precision=6)
+	@Column(name = "sp_id", precision = 6)
 	private BigDecimal spId;
 
-	//bi-directional many-to-one association to CondBase
-	@OneToMany(mappedBy="condBaseGroup")
+	// bi-directional many-to-one association to CondBase
+	@OneToMany(mappedBy = "condBaseGroup")
 	private List<CondBase> condBases;
 
-	//bi-directional many-to-one association to WorkCondition
+	// bi-directional many-to-one association to WorkCondition
 	@ManyToOne
-	@JoinColumn(name="work_condition_id", nullable=false)
+	@JoinColumn(name = "work_condition_id", nullable = false, referencedColumnName = "work_condition_id")
 	private WorkCondition workCondition;
 
 	public CondBaseGroup() {
