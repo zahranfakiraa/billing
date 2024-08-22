@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class PricePlanService {
+public class PricePlanController {
 
     @Autowired
     private PpricePlanService ppricePlanService;

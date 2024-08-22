@@ -9,7 +9,7 @@ import lombok.*;
 @Data
 @Entity
 @Table(name="subs_upp_order_attr")
-@NamedQuery(name="SubsUppOrderAttr.findAll", query="SELECT s FROM SubsUppOrderAttr s")
+@NamedQuery(name="SubsUppOrderAttr.findAll",query="SELECT s FROM SubsUppOrderAttr s")
 public class SubsUppOrderAttr implements Serializable{
     private static final long serialVersionUID = 1L;
 

@@ -10,11 +10,12 @@ import lombok.*;
 @Data
 @Entity
 @Table(name="subs_rela")
-@NamedQuery(name="SubsRela.findAll", query="SELECT s FROM SubsRela s")
+@NamedQuery(name="SubsRela.findAll",query="SELECT s FROM SubsRela s")
 public class SubsRela implements Serializable{
     private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="subs_rela_id", unique=true, nullable=false, precision=12)
 	private long subsRelaId;
 
@@ -61,5 +62,4 @@ public class SubsRela implements Serializable{
 
 	public SubsRela() {
 	}
-
 }

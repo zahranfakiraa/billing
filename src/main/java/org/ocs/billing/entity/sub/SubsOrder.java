@@ -10,7 +10,7 @@ import lombok.*;
 @Data
 @Entity
 @Table(name="subs_order")
-@NamedQuery(name="SubsOrder.findAll", query="SELECT s FROM SubsOrder s")
+@NamedQuery(name="SubsOrder.findAll",query="SELECT s FROM SubsOrder s")
 public class SubsOrder implements Serializable{
     private static final long serialVersionUID = 1L;
 

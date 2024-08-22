@@ -1,4 +1,4 @@
-package org.ocs.billing.entity.ball;
+package org.ocs.billing.entity.bal;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

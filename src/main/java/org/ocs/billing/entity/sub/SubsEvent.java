@@ -9,11 +9,12 @@ import lombok.*;
 @Data
 @Entity
 @Table(name="subs_event")
-@NamedQuery(name="SubsEvent.findAll", query="SELECT s FROM SubsEvent s")
+@NamedQuery(name="SubsEvent.findAll",query="SELECT s FROM SubsEvent s")
 public class SubsEvent implements Serializable{
     private static final long serialVersionUID = 1L;
-
-	@Id
+    
+    @Id
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name="subs_event_id", unique=true, nullable=false, precision=6)
 	private long subsEventId;
 
@@ -55,5 +56,4 @@ public class SubsEvent implements Serializable{
 
 	public SubsEvent() {
 	}
-
 }
