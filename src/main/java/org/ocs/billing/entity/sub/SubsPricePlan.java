@@ -36,5 +36,4 @@ public class SubsPricePlan implements Serializable {
 
 	public SubsPricePlan() {
 	}
-
 }

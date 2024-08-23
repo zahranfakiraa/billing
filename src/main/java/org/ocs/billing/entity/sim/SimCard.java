@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import org.ocs.billing.entity.GmBox;
+import org.ocs.billing.entity.gm.GmBox;
 
 import jakarta.persistence.*;
 import lombok.*;
