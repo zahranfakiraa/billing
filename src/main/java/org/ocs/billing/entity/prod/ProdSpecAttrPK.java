@@ -12,9 +12,11 @@ public class ProdSpecAttrPK implements Serializable{
     //default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column(name="prod_spec_id", unique=true, nullable=false, precision=6)
 	private long prodSpecId;
 
+	@Id
 	@Column(name="attr_id", unique=true, nullable=false, precision=9)
 	private long attrId;
 }

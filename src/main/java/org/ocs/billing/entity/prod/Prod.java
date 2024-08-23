@@ -21,8 +21,12 @@ import java.util.Date;
 public class Prod implements Serializable{
     private static final long serialVersionUID = 1L;
 
+	// @Id
+	// private String id = java.util.UUID.randomUUID().toString();
+	
 	@Id
-	private String id = java.util.UUID.randomUUID().toString();
+	@Column(name="prod_id", nullable=false, precision=12)
+	private BigDecimal prodId;
 
 	@Column(name="block_reason", length=60)
 	private String blockReason;
@@ -54,8 +58,6 @@ public class Prod implements Serializable{
 	@Column(name="prod_exp_date")
 	private Date prodExpDate;
 
-	@Column(name="prod_id", nullable=false, precision=12)
-	private BigDecimal prodId;
 
 	@Column(name="prod_spec_id", nullable=false, precision=6)
 	private BigDecimal prodSpecId;
