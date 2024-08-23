@@ -1,21 +1,17 @@
 package org.ocs.billing.common;
 
-import java.time.LocalDateTime;
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-public class ApiResponse {
-    private final boolean succes;
-    private final String message;
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class ApiResponse<T> {
+    private T data;
 
-    public ApiResponse(boolean succes, String message) {
-        this.succes = succes;
-        this.message = message;
-    }
+    private String errors;
 
-    public String getTimestamp() {
-		return LocalDateTime.now().toString();
-	}
-    
 }

@@ -32,8 +32,9 @@ public class CbecAcctRe implements Serializable{
 	@Column(name="created_date")
 	private Date createdDate;
 
-	@Column(name="currency_type_id", precision=6)
-	private BigDecimal currencyTypeId;
+	@ManyToOne
+	@JoinColumn(name="currency_type_id", referencedColumnName = "currency_type_id")
+	private CbecCurrencyType currencyTypeId;
 
 	@Column(name="eff_type", length=1)
 	private String effType;
