@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 
 import org.ocs.billing.entity.price.PriceVer;
 import org.ocs.billing.entity.re.ReAttr;
+import org.ocs.billing.entity.re.RefValue;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,8 +25,7 @@ public class Acm implements Serializable{
     @Column(name="acm_name", length=60)
     private String acmName;
 
-    @OneToOne
-    @JoinColumn(name="re_attr", nullable=false,referencedColumnName = "re_attr")
+    @Column(name="re_attr",precision=6)
     private ReAttr reAttr;
 
     @Column(name="sp_id", precision=6)
@@ -40,8 +40,9 @@ public class Acm implements Serializable{
     @Column(name="ref_resource_id", nullable=false, precision=9)
 	private BigDecimal refResourceId;
 
-    @Column(name="ref_value_id", precision=9)
-	private BigDecimal refValueId;
+    @OneToOne
+    @JoinColumn(name="ref_value_id", nullable=false,referencedColumnName = "ref_value_id")
+	private RefValue refValueId;
 
     @Column(name="template_flag", length=100)
     private String templateFlag;

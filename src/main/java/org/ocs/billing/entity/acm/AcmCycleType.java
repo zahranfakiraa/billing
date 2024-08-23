@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import org.ocs.billing.entity.DynReAttr;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,11 +17,12 @@ public class AcmCycleType implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @OneToMany(mappedBy="resource_id")
     @Column(name="acm_cycle_type_id",precision=6)
     private long acmCycleTypeId;
 
-    @Column(name="re_attr", unique=true, nullable=false, precision=6)
-	private long reAttr;
+    @JoinColumn(name="re_attr", nullable=false,referencedColumnName = "re_attr")
+	private DynReAttr reAttr;
 
     @Column(name="quantity",precision=3)
     private BigDecimal quantity;

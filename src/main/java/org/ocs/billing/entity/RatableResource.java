@@ -14,7 +14,8 @@ public class RatableResource implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name="resource_id",precision=9)
+    @ManyToOne
+    @JoinColumn(name="resource_id",referencedColumnName="acm_cycle_type_id")
     private BigDecimal resourceId;
 
     @Column(name="acm_type")
