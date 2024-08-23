@@ -10,7 +10,6 @@ import org.ocs.billing.entity.pPrice.PpricePlanType;
 import org.ocs.billing.entity.sub.SubsPricePlan;
 import org.ocs.billing.repository.pPrice.PpricePlanRepository;
 import org.ocs.billing.repository.pPrice.PpricePlanTypeRepository;
-import org.ocs.billing.repository.price.PricePlanTypeRepository;
 import org.ocs.billing.repository.sub.SubsPricePlanRepository;
 import org.ocs.billing.service.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
