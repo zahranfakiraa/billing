@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Data
-@Entity
 @Embeddable
 public class ProdSpecAttrPK implements Serializable{
 
